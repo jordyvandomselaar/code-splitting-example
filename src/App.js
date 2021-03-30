@@ -9,6 +9,7 @@ import Account from './pages/Account';
 import Dashboard from './pages/Dashboard';
 import ProductList from './pages/ProductList';
 import Settings from './pages/Settings';
+import { Switch } from 'react-router';
 
 const App = () => {
 
@@ -16,11 +17,13 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <DashboardLayout>
         <GlobalStyles />
-        <Route path="/" component={Dashboard}/>
-        <Route path="/app/account" component={Account}/>
-        <Route path="/app/dashboard" component={Dashboard}/>
-        <Route path="/app/products" component={ProductList}/>
-        <Route path="/app/settings" component={Settings}/>
+        <Switch>
+          <Route exact path="/" component={Dashboard}/>
+          <Route exact path="/app/account" component={Account}/>
+          <Route exact path="/app/dashboard" component={Dashboard}/>
+          <Route exact path="/app/products" component={ProductList}/>
+          <Route exact path="/app/settings" component={Settings}/>
+        </Switch>
       </DashboardLayout>
     </ThemeProvider>
   );
