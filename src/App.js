@@ -5,22 +5,21 @@ import GlobalStyles from './components/GlobalStyles';
 import './mixins/chartjs';
 import theme from './theme';
 import DashboardLayout from './components/DashboardLayout';
-import Account from './pages/Account';
-import Dashboard from './pages/Dashboard';
-import ProductList from './pages/ProductList';
-import Settings from './pages/Settings';
+import { routes } from './routes';
+import { Switch } from 'react-router';
 
 const App = () => {
-
   return (
     <ThemeProvider theme={theme}>
       <DashboardLayout>
         <GlobalStyles />
-        <Route path="/" component={Dashboard}/>
-        <Route path="/app/account" component={Account}/>
-        <Route path="/app/dashboard" component={Dashboard}/>
-        <Route path="/app/products" component={ProductList}/>
-        <Route path="/app/settings" component={Settings}/>
+        <Switch>
+          {Object.keys(routes).map(key => {
+            return (
+              <Route key={key} path={routes[key].path} component={routes[key].component} exact />
+            );
+          })}
+        </Switch>
       </DashboardLayout>
     </ThemeProvider>
   );
