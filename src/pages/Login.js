@@ -11,8 +11,8 @@ import {
   TextField,
   Typography
 } from '@material-ui/core';
-import FacebookIcon from 'src/icons/Facebook';
-import GoogleIcon from 'src/icons/Google';
+import FacebookIcon from '../icons/Facebook';
+import GoogleIcon from '../icons/Google';
 
 const Login = () => {
   const navigate = useNavigate();
